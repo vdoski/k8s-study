@@ -9,3 +9,17 @@
 7) Попробовал удалить все контейнеры - ничего не вышло, отказоустойчивасть присутствует
 8) Попробовал удалить имеющиеся поды, но кластер остался в рабочем состоянии - все поды восстановились. Это связано с тем, что эти поды относятся к статическим, система постоянно следит за их целостностью и не даёт им сломаться.
 9) Создал докерфайл, но пока что не всё реализовал в контейнере что необходимо, буду дорабатывать. Освежил в памяти работу с докер-контейнерами, откопал учётку на докерхабе, залил пробный образ туда [vdoski/my_apache:v1.1]
+10) Создал ямл-файлик web-pod.yaml, запустил, в списке подов появился
+11) Получил подробный манифест командой kubectl get pod my-first-pod -o yaml
+12) Посмотрел описание пода другим способом, через kubectl describe pod my-first-pod
+13) Определил что старт пода был успешен по перечисленным событиям
+14) Изменил тег на несуществующий образ, как следствие действительно получил ошибку:
+  Warning  Failed     1s    kubelet            Failed to pull image "vdoski/my_apache:v1.3": rpc error: code = Unknown desc = Error response from daemon: manifest for vdoski/my_apache:v1
+  .3 not found: manifest unknown: manifest unknown
+  Warning  Failed     1s    kubelet            Error: ErrImagePull
+  Normal   BackOff    1s    kubelet            Back-off pulling image "vdoski/my_apache:v1.3"
+  Warning  Failed     1s    kubelet            Error: ImagePullBackOff
+15) Удостоверился, что статус пода действительно изменился на ErrImagePull/ImagePullBackOff
+16) Снова вернулся к докерфайлу, доделал ещё два пункта по заданию:
+    2. Отдающий содержимое директории /app внутри контейнера (например, если в директории /app лежит файл homework.html, то при запуске контейнера данный файл должен быть доступен по URL http://localhost:8000/homework.html)
+    3. Работающий с UID 1001
