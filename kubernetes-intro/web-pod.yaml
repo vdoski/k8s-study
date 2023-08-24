@@ -7,7 +7,7 @@ metadata:
 spec: # Описание Pod
   containers: # Описание контейнеров внутри Pod
     - name: my-apache # Название контейнера
-      image: vdoski/my_apache # Образ из которого создается контейнер
+      image: vdoski/my_apache:lazver # Образ из которого создается контейнер
       volumeMounts:
         - name: app
           mountPath: /app
