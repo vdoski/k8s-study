@@ -7,4 +7,13 @@ metadata:
 spec: # Описание Pod
   containers: # Описание контейнеров внутри Pod
     - name: my-apache # Название контейнера
-      image: vdoski/my_apache:v1.3 # Образ из которого создается контейнер
+      image: vdoski/my_apache:v1.2 # Образ из которого создается контейнер
+      # init:
+      #   busybox: 1.31.0
+      #   command: ['sh', '-c', 'wget -O- https://tinyurl.com/otus-k8s-intro | sh']
+      #   volumeMounts:
+      #     - name: app
+      #       mountPath: /app
+      #   volumes:
+      #     - name: app
+      #       emptyDir: {}
