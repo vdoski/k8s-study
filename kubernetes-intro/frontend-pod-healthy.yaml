@@ -7,7 +7,7 @@ metadata:
   name: frontend
 spec:
   containers:
-  - image: vdoski/hipster-frontend:v0.0.1
+  - image: vdoski/hipster-frontend:v0.0.2
     name: frontend
     resources: {}
     env:
