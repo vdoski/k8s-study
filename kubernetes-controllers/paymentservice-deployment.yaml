@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: paymentservice
   labels:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: vdoski/hipster-paymentservice:v0.0.1
+          image: vdoski/hipster-paymentservice:v0.0.2
           env:
             - name: PORT
               value: "8080"
