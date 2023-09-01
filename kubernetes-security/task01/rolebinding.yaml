@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-pods # под этим именем мы потом увидим этот RoleBinding
+  namespace: security
+subjects:
+- kind: User # Group, ServiceAccount
+  name: bob # имя чувствительно к регистру
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role # явно указываем Role или ClusterRole
+  name: pod-reader # а тут имя той Role или ClusterRole к которой мы биндимся
+  apiGroup: rbac.authorization.k8s.io
