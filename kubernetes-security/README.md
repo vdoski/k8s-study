@@ -29,3 +29,4 @@ users:
 7) С помощью конфига связал роль claster-admin с пользователем боб.
 8) Теперь по запросу k cluster-info я могу получить информацию о кластере.
 9) Так же теперь я могу получать инфу по подам и что примечательно, теперь по умолчанию мне выдаются поды из namespace security. Однако и default просмотреть не запрещено.
+10) Создал нового пользователя dave, ему доступ к кластеру не давал. Error from server (Forbidden): services is forbidden: User "system:serviceaccount:default:dave" cannot list resource "services" in API group "" in the namespace "kube-system"
