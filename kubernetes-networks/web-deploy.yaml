@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: web # Название нашего объекта Deployment
 spec:
-  replicas: 1 # Начнем с одного пода
+  replicas: 3 # Начнем с одного пода
   selector: # Укажем, какие поды относятся к нашему Deployment:
     matchLabels: # - это поды с меткой
       app: web # app и ее значением web
@@ -19,7 +19,7 @@ spec:
           readinessProbe: # Добавим проверку готовности
             httpGet: # веб-сервера отдавать
               path: /index.html # контент
-              port: 80
+              port: 8000
           livenessProbe:
             tcpSocket:
               port: 8000
