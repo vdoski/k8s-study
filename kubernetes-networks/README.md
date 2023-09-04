@@ -397,3 +397,23 @@ replicaset.apps/controller-595f88d88f   1         1         1       63s
 Поскольку DNS работает по TCP и UDP протоколам - учтите это в
 конфигурации. Оба протокола должны работать по одному и тому же IP-
 адресу балансировщика.
+
+
+
+ kubernetes-networks git:(kubernetes-networks) ✗ k describe ingress/web
+Name:             web
+Labels:           <none>
+Namespace:        default
+Address:          192.168.49.241
+Ingress Class:    nginx
+Default backend:  <default>
+Rules:
+  Host        Path  Backends
+  ----        ----  --------
+  *           
+              /web   web-svc:8000 (10.244.0.4:8000,10.244.0.5:8000,10.244.0.6:8000)
+Annotations:  nginx.ingress.kubernetes.io/rewrite-target: /
+Events:
+  Type    Reason  Age                   From                      Message
+  ----    ------  ----                  ----                      -------
+  Normal  Sync    2m8s (x2 over 2m53s)  nginx-ingress-controller  Scheduled for sync
