@@ -368,3 +368,25 @@ Size in memory: 1256
 References: 0
 Number of entries: 0
 Members:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Использование LoadBalancer
+
+➜  kubernetes-networks git:(kubernetes-networks) ✗ kubectl --namespace metallb-system get all
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/controller-595f88d88f-n66p5   1/1     Running   0          63s
+pod/speaker-mdj4w                 1/1     Running   0          63s
+
+NAME                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/webhook-service   ClusterIP   10.105.255.21   <none>        443/TCP   63s
+
+NAME                     DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/speaker   1         1         1       1            1           kubernetes.io/os=linux   63s
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/controller   1/1     1            1           63s
+
+NAME                                    DESIRED   CURRENT   READY   AGE
+replicaset.apps/controller-595f88d88f   1         1         1       63s
+
