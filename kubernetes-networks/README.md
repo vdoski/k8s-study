@@ -390,3 +390,10 @@ deployment.apps/controller   1/1     1            1           63s
 NAME                                    DESIRED   CURRENT   READY   AGE
 replicaset.apps/controller-595f88d88f   1         1         1       63s
 
+Задание со ⭐ | DNS через MetalLB
+Сделайте сервис LoadBalancer , который откроет доступ к CoreDNS
+снаружи кластера (позволит получать записи через внешний IP).
+Например, nslookup web.default.cluster.local 172.17.255.10 .
+Поскольку DNS работает по TCP и UDP протоколам - учтите это в
+конфигурации. Оба протокола должны работать по одному и тому же IP-
+адресу балансировщика.
