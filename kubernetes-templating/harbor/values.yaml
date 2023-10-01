@@ -1,0 +1,16 @@
+expose:
+  type: ingress
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: "true"
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      cert-manager.io/acme-challenge-type: http01
+    hosts:
+      core: harbor.k8s-study.duckdns.org
+  tls:
+    secret:
+      secretName: harbor.k8s-study.duckdns.org
+externalURL: https://harbor.k8s-study.duckdns.org
+notary:
+  enabled: false
