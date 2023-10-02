@@ -86,3 +86,21 @@ Events:          <none>
 Если сейчас из описания mysql убрать строчку из спецификации, то манифест будет принят API сервером. Для того, чтобы этого избежать, добавьте описание обязательных полей в CustomResourceDefinition
 
 Полагаю, ответ в том чтобы добавить значения default: "..."
+
+17. Далее идёт разработка контроллера на пайтоне
+18. Запускаю новый сервис-аккаунт, роль, связываю роль с сервис аккаунтом, далее деплой-оператор
+19. Проверил что появились PVC:
+  kubernetes-operators git:(kubernetes-operators) ✗ k get pvc
+NAME                        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+backup-mysql-instance-pvc   Bound    pvc-53b2499f-3af2-4d00-88fa-9f8a791671fe   1Gi        RWO            standard       101s
+mysql-instance-pvc          Bound    pvc-112970cb-ac19-424e-8d5e-99ae9f566b62   1Gi        RWO            standard       101s
+20. Далее заполняю бд тестовыми данными, проверяю что заполнилось:
+
+kubernetes-operators git:(kubernetes-operators) ✗ kubectl exec -it $MYSQLPOD -- mysql -potuspassword -e "select * from test;" otus-database
+mysql: [Warning] Using a password on the command line interface can be insecure.
++----+-------------+
+| id | name        |
++----+-------------+
+|  1 | some data   |
+|  2 | some data-2 |
++----+-------------+
