@@ -55,3 +55,34 @@ schema:
             usless_data:
               type: string
 13. Фиксирую результат в гите
+14. Проверил взаимодействие с crd через команды:
+    k get crd
+    k get mysqls.otus.homework
+    k describe mysqls.otus.homework
+Вывод последней команды:
+      kubernetes-operators git:(kubernetes-operators) k describe mysqls.otus.homework 
+Name:         mysql-instance
+Namespace:    default
+Labels:       <none>
+Annotations:  <none>
+API Version:  otus.homework/v1
+Kind:         MySQL
+Metadata:
+  Creation Timestamp:  2023-10-02T09:57:50Z
+  Generation:          1
+  Resource Version:    47218
+  UID:                 cb7fc029-b6b4-4535-8231-d4a661307cbe
+Spec:
+  Database:      otus-database
+  Image:         mysql:5.7
+  Password:      otuspassword
+  storage_size:  1Gi
+usless_data:     useless info
+Events:          <none>
+
+15. В следующей части презентации как раз идёт речь о валидации, а я её как раз уже сделал. Вывод - в современной версии crd нельзя не указывать validation.
+
+16. Задание по CRD:
+Если сейчас из описания mysql убрать строчку из спецификации, то манифест будет принят API сервером. Для того, чтобы этого избежать, добавьте описание обязательных полей в CustomResourceDefinition
+
+Полагаю, ответ в том чтобы добавить значения default: "..."

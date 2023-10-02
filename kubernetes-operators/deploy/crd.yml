@@ -13,6 +13,15 @@ spec:
       openAPIV3Schema:
           type: object
           properties:
+            apiVersion:
+              type: string # Тип данных поля ApiVersion
+            kind:
+              type: string # Тип данных поля kind
+            metadata:
+              type: object # Тип поля metadata
+              properties: # Доступные параметры и их тип данных поля metadata (словарь)
+                name:
+                  type: string
             spec:
               type: object
               properties:
@@ -24,8 +33,6 @@ spec:
                   type: string
                 storage_size:
                   type: string
-            usless_data:
-              type: string
   names: # различные форматы имени объекта CR
     kind: MySQL # kind CR
     plural: mysqls
